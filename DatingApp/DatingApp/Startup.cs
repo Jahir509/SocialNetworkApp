@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DatingApp.Data;
+using DatingApp.Repository.Auth;
+using DatingApp.Repository.Contracts.IAuth;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp
@@ -30,6 +32,7 @@ namespace DatingApp
             services.AddDbContext<DataContext>(d => d.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddCors();
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

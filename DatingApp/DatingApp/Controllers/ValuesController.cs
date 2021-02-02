@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DatingApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.Controllers
 {
@@ -22,16 +23,16 @@ namespace DatingApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            var values = _context.Values.ToList();
+            var values =await _context.Values.ToListAsync();
             return Ok(values);
         }
 
         [HttpGet("Detail/{id}")]
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            var value = _context.Values.FirstOrDefault(c=>c.Id==id);
+            var value =await _context.Values.FirstOrDefaultAsync(c=>c.Id==id);
             return Ok(value);
         }
     }

@@ -64,3 +64,4 @@ G:\GIT\SocialNetworkApp\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.cs
 G:\GIT\SocialNetworkApp\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.dll
 G:\GIT\SocialNetworkApp\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.pdb
 G:\GIT\SocialNetworkApp\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.genruntimeconfig.cache
+G:\GIT\SocialNetworkApp\DatingApp\DatingApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

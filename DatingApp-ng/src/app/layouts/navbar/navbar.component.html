@@ -11,11 +11,26 @@
         <li class="nav-item">
           <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Messages</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" (click)="logout()">logout</a>
+        </li>
       </ul>
-      <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()">
+    <div *ngIf="loggedIn()" class="dropdown">
+      <a class="dropdown-toggle text-light">
+       Welcome user
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
+        <div class="dropdown-divider"></div>
+        <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
+      </ul>
+    </div>
+
+      <form *ngIf="!loggedIn()" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()">
         <input class="form-control mr-2" type="text" placeholder="Username" name="username" [(ngModel)]="model.username" required>
         <input class="form-control mr-2" type="password" placeholder="Password" name="password" [(ngModel)]="model.password" required>
-        <button class="btn btn-outline-success" type="submit" [disabled]="!loginForm.valid">Login</button>
+        <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid">Login</button>
       </form>
+
   </div>
 </nav>

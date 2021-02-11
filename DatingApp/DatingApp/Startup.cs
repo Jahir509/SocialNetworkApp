@@ -13,6 +13,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using DatingApp.Data;
+using DatingApp.Helpers;
 using DatingApp.Repository.Auth;
 using DatingApp.Repository.Contracts.IAuth;
 using DatingApp.Service.AuthService;
@@ -74,6 +75,7 @@ namespace DatingApp
             var error = context.Features.Get<IExceptionHandlerFeature>();
             if (error != null)
             {
+              context.Response.AddApplicationError(error.Error.Message);
               await context.Response.WriteAsync(error.Error.Message);
             }
           });

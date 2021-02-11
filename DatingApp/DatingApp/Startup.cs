@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using DatingApp.Data;
@@ -18,6 +19,8 @@ using DatingApp.Service.AuthService;
 using DatingApp.Service.Contracts.IAuthService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Tokens;
 
 namespace DatingApp
@@ -59,6 +62,22 @@ namespace DatingApp
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
+      }
+
+      else
+      {
+        app.UseExceptionHandler(builder =>
+        {
+          builder.Run(async context =>
+          {
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            var error = context.Features.Get<IExceptionHandlerFeature>();
+            if (error != null)
+            {
+              await context.Response.WriteAsync(error.Error.Message);
+            }
+          });
+        });
       }
 
       //app.UseHttpsRedirection();

@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Dating App</a>
-      <ul class="navbar-nav mr-auto">
+      <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" aria-current="page" href="#">Matches</a>
         </li>
@@ -11,20 +11,17 @@
         <li class="nav-item">
           <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Messages</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" (click)="logout()">logout</a>
-        </li>
       </ul>
-    <div *ngIf="loggedIn()" class="dropdown">
-      <a class="dropdown-toggle text-light">
-       Welcome user
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
-        <div class="dropdown-divider"></div>
-        <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
-      </ul>
-    </div>
+      <div *ngIf="loggedIn()" class="dropdown" dropdown>
+        <a class="dropdown-toggle text-light" dropdownToggle>
+         Welcome {{_authService.decodedToken?.unique_name | titlecase }}
+        </a>
+        <ul class="dropdown-menu mt-3" aria-labelledby="dropdownMenuLink" *dropdownMenu>
+          <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Edit Profile</a></li>
+          <div class="dropdown-divider"></div>
+          <li><a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a></li>
+        </ul>
+      </div>
 
       <form *ngIf="!loggedIn()" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()">
         <input class="form-control mr-2" type="text" placeholder="Username" name="username" [(ngModel)]="model.username" required>

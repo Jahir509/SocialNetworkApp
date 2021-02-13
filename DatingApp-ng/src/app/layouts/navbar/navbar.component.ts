@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
 
   model: any = {};
 
-  constructor(private _authService: AuthService,private alertify:AlertifyService) { }
+  constructor(public _authService: AuthService,private alertify:AlertifyService) { }
 
   ngOnInit(): void {
   }
@@ -26,8 +26,7 @@ export class NavbarComponent implements OnInit {
   }
 
   loggedIn(){
-    const token = localStorage.getItem('token');
-    return !!token;
+    return this._authService.loggedIn();
   }
 
   logout(){

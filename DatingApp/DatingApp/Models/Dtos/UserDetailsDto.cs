@@ -1,17 +1,22 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DatingApp.Models.Dtos
 {
-  public class UserDto
+  public class UserDetailsDto
   {
     public long Id { get; set; }
+    [Required]
     public string Username { get; set; }
-    public string Password { get; set; }
+    [Required]
+    [StringLength(8, MinimumLength = 4, ErrorMessage = "Password must be between 4 to 8 character")]
     public string Gender { get; set; }
     public string KnownAs { get; set; }
+    public string Interests { get; set; }
     public string PhotoUrl { get; set; }
+    public ICollection<PhotoDetailsDto> Photos { get; set; }
     public int Age { get; set; }
 
 

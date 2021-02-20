@@ -6,21 +6,42 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DatingApp.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DatingApp
 {
-    public class Program
+  public class Program
+  {
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
+      var host = CreateHostBuilder(args).Build();
+      using (var scope = host.Services.CreateScope())
+      {
+        var services = scope.ServiceProvider;
+        try
         {
-            CreateHostBuilder(args).Build().Run();
+          var context = services.GetRequiredService<DataContext>();
+          // Automatically update database migration
+          context.Database.Migrate();
+          // Seed data inject
+          Seed.SeedUsers(context);
         }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        catch (Exception e)
+        {
+          var logger = services.GetRequiredService<ILogger<Program>>();
+          logger.LogError(e,"An error occurred during migrations");
+        }
+      }
+      host.Run();
     }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+              webBuilder.UseStartup<Startup>();
+            });
+  }
 }

@@ -12,7 +12,10 @@ namespace DatingApp.Models.Dtos
     public string Gender { get; set; }
     public string KnownAs { get; set; }
     public string PhotoUrl { get; set; }
+    public string Introduction { get; set; }
+    public string Interests { get; set; }
     public int Age { get; set; }
+    public ICollection<PhotoDetailsDto> Photos { get; set; }
 
 
     // Contracts ------------------------------

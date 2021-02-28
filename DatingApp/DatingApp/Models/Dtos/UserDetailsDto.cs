@@ -14,6 +14,7 @@ namespace DatingApp.Models.Dtos
     [StringLength(8, MinimumLength = 4, ErrorMessage = "Password must be between 4 to 8 character")]
     public string Gender { get; set; }
     public string KnownAs { get; set; }
+    public string Introduction { get; set; }
     public string Interests { get; set; }
     public string PhotoUrl { get; set; }
     public ICollection<PhotoDetailsDto> Photos { get; set; }

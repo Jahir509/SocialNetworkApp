@@ -114,7 +114,7 @@
     "Country": "China",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/male/10.jpg",
+        "url": "https://randomuser.me/api/portraits/men/10.jpg",
         "isMain": true,
         "description": "Occaecat non aliquip non fugiat cupidatat adipisicing enim dolore consequat consectetur elit aute do."
       }
@@ -134,7 +134,7 @@
     "Country": "Togo",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/male/73.jpg",
+        "url": "https://randomuser.me/api/portraits/men/73.jpg",
         "isMain": true,
         "description": "Ad sit cupidatat officia minim laborum voluptate aliquip esse nisi ea sit ad aute."
       }
@@ -154,7 +154,7 @@
     "Country": "Gibraltar",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/male/54.jpg",
+        "url": "https://randomuser.me/api/portraits/men/54.jpg",
         "isMain": true,
         "description": "Pariatur irure occaecat nulla culpa exercitation eiusmod consectetur laboris."
       }
@@ -174,7 +174,7 @@
     "Country": "Switzerland",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/male/82.jpg",
+        "url": "https://randomuser.me/api/portraits/men/82.jpg",
         "isMain": true,
         "description": "Irure velit anim ut reprehenderit exercitation nisi ut."
       }
@@ -194,7 +194,7 @@
     "Country": "Portugal",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/male/85.jpg",
+        "url": "https://randomuser.me/api/portraits/men/85.jpg",
         "isMain": true,
         "description": "Id dolor quis qui sint dolor sunt excepteur Lorem."
       }

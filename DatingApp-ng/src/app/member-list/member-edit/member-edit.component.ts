@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {User} from '../../_guards/_models/user';
-import {UserService} from '../../_services/DatingApp/user.service';
-import {AlertifyService} from '../../_services/alertify.service';
-import {AuthService} from '../../_services/auth.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { User } from '../../_guards/_models/user';
+import { UserService } from '../../_services/DatingApp/user.service';
+import { AlertifyService } from '../../_services/alertify.service';
+import { AuthService } from '../../_services/auth.service';
+import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-member-edit',
@@ -10,12 +12,17 @@ import {AuthService} from '../../_services/auth.service';
   styleUrls: ['./member-edit.component.css']
 })
 export class MemberEditComponent implements OnInit {
-  user:User;
+  /**
+   *  This view child is for getting the form value
+   **/
+  @ViewChild('editForm') editForm:NgForm;
+
+
+  user: User;
 
   constructor(
-    private _userService:UserService,
-    private _alertifyService:AlertifyService,
-    private _authService:AuthService
+    private activatedRoute: ActivatedRoute,
+    private alertify:AlertifyService
   ) { }
 
   ngOnInit(): void {
@@ -24,12 +31,15 @@ export class MemberEditComponent implements OnInit {
 
 
   private loadUser(): void {
-    this._userService.getUser(this._authService.decodedToken.nameid).subscribe((user: User) => {
-      this.user = user;
-      // this.galleryImages = this.getImages(this.user.photos);
-    }, error => {
-      this._alertifyService.error(error);
-    });
+    // Getting Data using Resolver
+    this.activatedRoute.data.subscribe(data => {
+      this.user = data['user'];
+    })
   }
 
+  updateUser(): void {
+    console.log(this.user);
+    this.alertify.success('Profile Updated')
+    this.editForm.reset(this.user);
+  }
 }

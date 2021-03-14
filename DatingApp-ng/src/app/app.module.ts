@@ -23,6 +23,7 @@ import { MemberComponent } from './member-list/member/member.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { MemberEditComponent } from './member-list/member-edit/member-edit.component';
+import { MemberEditResolver } from './member-list/member-edit/member-edit.resolver';
 
 
 export function tokenGetter(){
@@ -63,6 +64,7 @@ export function tokenGetter(){
     AuthService,
     ErrorInterceptorProvider,
     AlertifyService,
+    MemberEditResolver,
   ],
   bootstrap: [AppComponent]
 })

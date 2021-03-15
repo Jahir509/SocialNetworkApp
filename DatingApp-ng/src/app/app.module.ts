@@ -24,6 +24,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { MemberEditComponent } from './member-list/member-edit/member-edit.component';
 import { MemberEditResolver } from './member-list/member-edit/member-edit.resolver';
+import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
+import { AuthGuard } from './_guards/auth.guard';
 
 
 export function tokenGetter(){
@@ -65,6 +67,8 @@ export function tokenGetter(){
     ErrorInterceptorProvider,
     AlertifyService,
     MemberEditResolver,
+    PreventUnsavedChangesGuard,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

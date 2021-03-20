@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using DatingApp.Models.Dtos;
@@ -17,12 +19,10 @@ namespace DatingApp.Controllers
   public class UserController : ControllerBase
   {
     private readonly IUserService _service;
-    private readonly IMapper _mapper;
 
     public UserController(IUserService service,IMapper mapper)
     {
       _service = service;
-      _mapper = mapper;
     }
 
     // GET
@@ -31,18 +31,27 @@ namespace DatingApp.Controllers
     {
       var users = await _service.GetUsers();
       //var data = users.Select(u => new {u.Id, u.Username, u.Gender, u.KnownAs, u.Photos});
-      var data = _mapper.Map<IEnumerable<UserDto>>(users);
-      return Ok(data);
+      return Ok(users);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetUser(int id)
     {
       var user = await _service.GetUser(id);
+      return Ok(user);
+    }
 
-      var data = _mapper.Map< UserDetailsDto > (user);
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateUser(int id,UserDetailsDto dto)
+    {
+      // This line validate the user is is authorised by token match with server
+      if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value)) return Unauthorized();
 
-      return Ok(data);
+      bool isUpdated =await _service.UpdateUser(id,dto);
+      if (isUpdated) return NoContent();
+      throw new Exception($"Updating user {id} failed on save");
+
+
     }
   }
 }

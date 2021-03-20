@@ -25,5 +25,10 @@ namespace DatingApp.Repository
     {
       return await _context.Users.Include(p=>p.Photos).FirstOrDefaultAsync(c => c.Id == id);
     }
+
+    public async Task<bool> SaveAll()
+    {
+      return await _context.SaveChangesAsync() > 0;
+    }
   }
 }

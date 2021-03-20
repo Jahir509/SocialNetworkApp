@@ -9,5 +9,7 @@ namespace DatingApp.Repository.Contracts
   {
     public Task<IEnumerable<User>> GetUsers();
     public Task<User> GetUser(int id);
+    public Task<bool> SaveAll();
+
   }
 }

@@ -16,13 +16,10 @@ export class MemberEditComponent implements OnInit {
    *  This view child is for getting the form value
    **/
   @ViewChild('editForm') editForm: NgForm;
-  user: User;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private alertify: AlertifyService
-  ) { }
-
+  /**
+   * This host listener is for closing the page crossing the tab but pop up a window message
+   * **/
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event) {
     if (this.editForm.dirty) {
@@ -30,14 +27,31 @@ export class MemberEditComponent implements OnInit {
     }
   }
 
+  user: User;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private authService:AuthService,
+    private userService:UserService,
+    private alertify: AlertifyService
+  ) { }
+
+
   ngOnInit(): void {
     this.loadUser();
   }
 
   updateUser(): void {
-    console.log(this.user);
-    this.alertify.success('Profile Updated')
-    this.editForm.reset(this.user);
+    this.userService.updateUser(this.authService.decodedToken.nameId,this.user).subscribe(data=>{
+      this.alertify.success('Profile Updated')
+      /**
+       * this.user in editForm.reset hold the current changes data in ui.
+       * **/
+      this.editForm.reset(this.user);
+    },error => {
+      this.alertify.error(error);
+    })
+
   }
 
   private loadUser(): void {

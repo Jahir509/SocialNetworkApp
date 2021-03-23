@@ -42,6 +42,8 @@ namespace DatingApp
           opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
           );  // NewtonSoftJson For Cycling Dependency Error Solve
       services.AddCors();
+      // This Cofiguration is for Cloud Image Saving
+      services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
       services.AddAutoMapper(typeof(UserRepository).Assembly);
       services.AddScoped<IAuthRepository, AuthRepository>();
       services.AddScoped<IAuthService, AuthService>();

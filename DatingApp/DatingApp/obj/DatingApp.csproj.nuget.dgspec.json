@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "G:\\GIT\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj": {}
+    "D:\\Git\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj": {}
   },
   "projects": {
-    "G:\\GIT\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj": {
+    "D:\\Git\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\GIT\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj",
+        "projectUniqueName": "D:\\Git\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj",
         "projectName": "DatingApp",
-        "projectPath": "G:\\GIT\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj",
-        "packagesPath": "C:\\Users\\jahir\\.nuget\\packages\\",
-        "outputPath": "G:\\GIT\\SocialNetworkApp\\DatingApp\\DatingApp\\obj\\",
+        "projectPath": "D:\\Git\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj",
+        "packagesPath": "C:\\Users\\Jahir\\.nuget\\packages\\",
+        "outputPath": "D:\\Git\\SocialNetworkApp\\DatingApp\\DatingApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jahir\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Jahir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -47,6 +43,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.1.1, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.15.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj": {}
+    "G:\\GIT\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj": {}
   },
   "projects": {
-    "D:\\Git\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj": {
+    "G:\\GIT\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj",
+        "projectUniqueName": "G:\\GIT\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj",
         "projectName": "DatingApp",
-        "projectPath": "D:\\Git\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj",
-        "packagesPath": "C:\\Users\\Jahir\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\SocialNetworkApp\\DatingApp\\DatingApp\\obj\\",
+        "projectPath": "G:\\GIT\\SocialNetworkApp\\DatingApp\\DatingApp\\DatingApp.csproj",
+        "packagesPath": "C:\\Users\\jahir\\.nuget\\packages\\",
+        "outputPath": "G:\\GIT\\SocialNetworkApp\\DatingApp\\DatingApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Jahir\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\jahir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -95,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

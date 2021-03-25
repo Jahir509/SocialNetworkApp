@@ -84,8 +84,8 @@ namespace DatingApp.Controllers
         uploadResult = _cloudinary.Upload(uploadParams);
       }
 
-      photoCreateDto.Url = uploadResult.Uri.ToString();
-      //photoCreateDto.PublicId = uploadResult.PublicId;
+      photoCreateDto.Url = uploadResult.Url.ToString();
+      photoCreateDto.PublicId = uploadResult.PublicId;
 
       var photo = _mapper.Map<Photo>(photoCreateDto);
 
